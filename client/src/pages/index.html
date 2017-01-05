@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3" />
+    <!-- Your app title -->
+    <title>Note App React</title>
+</head>
+
+<body>
+    <!-- Views -->
+    <div class="views">
+        <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main">
+            <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-fixed">
+                <!-- Page, "data-page" contains page name -->
+                <div data-page="index" class="page with-subnavbar">
+
+                    <!-- Top Navbar. In Material theme it should be inside of the page-->
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div class="left">
+                              <a href="#" class="link open-panel icon-only" data-panel="left">
+                                <i class="icon ion-md-menu"></i>
+                              </a>
+                            </div>
+                            <div class="center">Note App React</div>
+                            <div class="right"></div>
+                        </div>
+                    </div>
+                    <form data-search-list=".list-block-search" data-search-in="a" class="searchbar">
+                        <div class="searchbar-input">
+                            <input name="search" type="search" placeholder="search note" />
+                            <a href="#" class="searchbar-clear"></a>
+                        </div>
+                    </form>
+
+                    <a href="add-note.html" class="floating-button color-pink">
+                      <i class="icon ion-md-add"></i>
+                    </a>
+
+                    <div class="searchbar-overlay"></div>
+
+                    <!-- Scrollable page content -->
+                    <div class="page-content">
+                      <div class="content-block searchbar-not-found">
+                        Nothing found
+                      </div>
+                      <div id="sample-id"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-overlay"></div>
+    <div class="panel panel-left panel-cover">
+      <div class="view view-left">
+        <div class="pages navbar-fixed">
+          <div data-page="panel" class="page">
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="left">
+                  <a href="#" class="link close-panel icon-only">
+                    <i class="icon ion-md-arrow-back"></i>
+                  </a>
+                </div>
+                <div class="center">
+                  Filter notes
+                </div>
+              </div>
+            </div>
+            <div id="filter-content" class="page-content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup tablet-fullscreen about-app">
+      <div class="view">
+        <div class="pages navbar-fixed">
+          <div data-page="about" class="page">
+            <div class="navbar">
+              <div class="navbar-inner">
+                  <div class="left">
+                    <a href="#" class="link close-popup icon-only">
+                      <i class="icon ion-md-arrow-back"></i>
+                    </a>
+                  </div>
+                  <div class="center">About App</div>
+                  <div class="right"></div>
+              </div>
+            </div>
+            <div id="about-content" class="page-content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="bundle.js"></script>
+</body>
+
+</html>
