@@ -14,6 +14,7 @@ Selain itu, pada saat membuat dan memperbarui catatan, pengguna dapat mengunggah
 
 ### Arsitektur Sistem
 Arsitektur sistem pada **Note App React** terdiri dari tiga bagian, yaitu basis data/_database_, _API server_, dan _client_.
+
 1. Basis data **Note App React**  
  Basis data yang digunakan adalah [mongoDB][mongodb link]. Penggunaan mongoDB lebih cepat, efisien dan _scalable_ jika sewaktu-waktu terjadi perubahan kebutuhan penyimpanan data suatu sistem.  
 
@@ -39,12 +40,16 @@ Redux digunakan untuk pengelolaan _state_ pada React supaya dapat digunakan kemb
 
 ### Instalasi  
 Ada beberapa hal yang perlu dilakukan sebelum menggunakan aplikasi **Note App React** ini, diantaranya:  
-1. Install [node.js][nodejs link]. Disarankan menggunakan node.js versi 6 LTS
-2. Install [MongoDB driver][mongodb driver link], kemudian aktifkan MongoDB sesuai sistem operasi yang digunakan.
+
+1. Install [node.js][nodejs link]. Disarankan menggunakan node.js versi 6 LTS  
+
+2. Install [MongoDB driver][mongodb driver link], kemudian aktifkan MongoDB sesuai sistem operasi yang digunakan.  
+
 3. Install [concurrently][concurrently link] untuk mengaktifkan _API server_ dan _client_ secara paralel, tanpa harus membuka dua _tab console_   
 ```javascript
 npm install concurrently -g
-```
+```  
+
 4. Install [webpack][webpack link] dan [webpack-dev-server][webpack dev link]  
 ```javascript
 npm install webpack webpack-dev-server -g
