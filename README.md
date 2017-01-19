@@ -10,7 +10,7 @@
 
 Selain itu, pada saat membuat dan memperbarui catatan, pengguna dapat mengunggah gambar berekstensi jpg atau png. Gambar tersebut dikonversi menjadi format base64 sehingga memungkinkan untuk dapat disimpan ke _database_.  
 
-**Note App React** juga dapat mengirimkan lokasi tiap kali membuat/ memperbarui catatan. Pengguna harus setuju jika **Note App React** menampilkan perijinan penggunaan _geolocation_ untuk mendapatkan lokasi pengguna. Jika pengguna telah setuju perijinan lokasi tersebut, **Note App React** menyimpan _latitude_ dan _longitude_ pengguna dalam bentuk URL Google Static Map, tetapi tidak ditampilkan ke aplikasi tersebut.   
+**Note App React** juga dapat mengirimkan lokasi tiap kali membuat/ memperbarui catatan. Pengguna harus setuju jika **Note App React** menampilkan perijinan penggunaan _geolocation_ untuk mendapatkan lokasi pengguna. Jika pengguna telah setuju perijinan lokasi tersebut, **Note App React** menyimpan _latitude_ dan _longitude_ pengguna dalam bentuk URL Google Static Map. Akan tetapi, URL tersebut tidak ditampilkan ke aplikasi **Note App React**.   
 
 ### Arsitektur Sistem
 Arsitektur sistem pada **Note App React** terdiri dari tiga bagian, yaitu basis data/_database_, _API server_, dan _client_.
@@ -45,29 +45,19 @@ Ada beberapa hal yang perlu dilakukan sebelum menggunakan aplikasi **Note App Re
 
 2. Install [MongoDB driver][mongodb driver link], kemudian aktifkan MongoDB sesuai sistem operasi yang digunakan.  
 
-3. Install [concurrently][concurrently link] untuk mengaktifkan _API server_ dan _client_ secara paralel, tanpa harus membuka dua _tab console_   
-```javascript
-npm install concurrently -g
-```  
+3. Install [concurrently][concurrently link] untuk mengaktifkan _API server_ dan _client_ secara paralel, tanpa harus membuka dua _tab console_ dengan menuliskan `npm install concurrently -g`  
 
-4. Install [webpack][webpack link] dan [webpack-dev-server][webpack dev link]  
-```javascript
-npm install webpack webpack-dev-server -g
-```  
+4. Install [webpack][webpack link] dan [webpack-dev-server][webpack dev link] dengan menuliskan `npm install webpack webpack-dev-server -g`  
 
 Selanjutnya, install semua _dependency_ yang digunakan pada **Note App React** ini dengan mengetikkan
-```javascript
-npm install
-```  
-Aktifkan _API server_ dan _client_ dengan mengetikkan
-```javascript
-npm start
-```  
+`npm install`  
+
+Aktifkan _API server_ dan _client_ dengan mengetikkan `npm start`  
 _API server_ dan _client_ masing-masing aktif pada URL https://localhost:3000 dan http://localhost:8070  
 
 Tambahkan _security exception_ pada URL `https://localhost:3000` di _browser_ supaya _server API_ **Note App React** dapat diakses oleh _client_  
 
-Aplikasi **Note App React** ini dibuat oleh Achmad Kurnianto dalam rangka menjawab ProblemSet dari CodePolitan untuk _instructor recruitment_ di HACKTIV8. Walaupun saya tidak diterima sebagai _instructor_ di HACKTIV8, saya mendapatkan react t-shirt dari CodePolitan.
+Aplikasi **Note App React** ini dibuat oleh Achmad Kurnianto dalam rangka menjawab ProblemSet dari CodePolitan untuk [_instructor recruitment_ di HACKTIV8][instructor recruitment link]. Walaupun saya tidak diterima sebagai _instructor_ di HACKTIV8, saya mendapatkan react t-shirt dari CodePolitan.
 
 [concurrently link]: https://www.npmjs.com/package/concurrently
 [express link]: https://expressjs.com/
@@ -84,5 +74,7 @@ Aplikasi **Note App React** ini dibuat oleh Achmad Kurnianto dalam rangka menjaw
 [spdy link]: https://www.npmjs.com/package/spdy
 [webpack link]: https://webpack.github.io/docs/
 [webpack dev link]: https://github.com/webpack/webpack-dev-server
+
+[instructor recruitment link]: https://www.codepolitan.com/job-vacancy-problemset-instructor-hacktiv8
 
 [example image]: https://maps.googleapis.com/maps/api/staticmap?center=-6.160382,106.847349&zoom=18&size=800x450&sensor=false&markers=color:red|-6.160382,106.847349
