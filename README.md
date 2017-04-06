@@ -1,4 +1,7 @@
 # Note App React  
+
+[![Known Vulnerabilities](https://snyk.io/test/github/achmadk/note-app-react/badge.svg)](https://snyk.io/test/github/achmadk/note-app-react)  
+
 ### Deskripsi  
 **Note App React** adalah aplikasi web yang digunakan untuk pengelolaan catatan (_note_). Beberapa pengelolaan catatan tersebut antara lain:  
 * Melihat semua catatan yang dimiliki pengguna.  
