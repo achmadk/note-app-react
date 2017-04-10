@@ -14,6 +14,7 @@
 Selain itu, pada saat membuat dan memperbarui catatan, pengguna dapat mengunggah gambar berekstensi jpg atau png. Gambar tersebut dikonversi menjadi format base64 sehingga memungkinkan untuk dapat disimpan ke _database_.  
 
 **Note App React** juga dapat mengirimkan lokasi tiap kali membuat/ memperbarui catatan. Pengguna harus setuju jika **Note App React** menampilkan perijinan penggunaan _geolocation_ untuk mendapatkan lokasi pengguna. Jika pengguna telah setuju perijinan lokasi tersebut, **Note App React** menyimpan _latitude_ dan _longitude_ pengguna dalam bentuk URL Google Static Map. Akan tetapi, URL tersebut tidak ditampilkan ke aplikasi **Note App React**.   
+![alt text][example image]
 
 ### Arsitektur Sistem
 Arsitektur sistem pada **Note App React** terdiri dari tiga bagian, yaitu basis data/_database_, _API server_, dan _client_.
@@ -37,7 +38,8 @@ React digunakan untuk mempercepat _rendering_ data dari _API server_ ke _client_
 Redux digunakan untuk pengelolaan _state_ pada React supaya dapat digunakan kembali sewaktu-waktu/ _reusable_. Adapun beberapa _middleware_ yang dipakai antara lain:  
     * [redux thunk][redux thunk link] untuk menangani fungsi yang bersifat asinkron
     * [redux promise middleware][redux promise link] untuk menangani fungsi _promise_, dalam aplikasi ini digunakan untuk menangani keluaran _promise_ dari [mappersmith][mappersmith link] dan _geolocation_.  
-   * [Webpack][webpack link]  
+
+ * [Webpack][webpack link]  
    Webpack digunakan untuk menghimpun _source code_ yang ada pada _client_ menjadi 1 _file_. Selain itu, webpack pada _client_ ini digunakan untuk menyalin beberapa file ke folder tujuan, memungkinkan _inline style_, dan _code splitting_.
 
 
