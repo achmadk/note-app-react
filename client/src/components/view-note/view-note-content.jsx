@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import moment from 'moment'
 
+import LoadingPage from 'components/global/loading-page'
+
 import {renameTag} from 'modules/panel/functions'
 
 class ViewNoteContent extends Component {
@@ -25,19 +27,22 @@ class ViewNoteContent extends Component {
     console.log(window.image)
   }
   render() {
-    let {note} = this.props,
-    image = (note.image) ? (<img className="note-image" src={note.image} />) : false,
-    date = moment(note.date_created, 'DD/MM/YYYY HH:mm:ss').format('D MMMM YYYY HH:mm')
+    let {loading, note} = this.props
+    let {image, date_created, content, tag, category} = note,
+    noteImage = (image) && (<img className="note-image" src={image} />),
+    date = moment(date_created, 'DD/MM/YYYY HH:mm:ss').format('D MMMM YYYY HH:mm')
+
+    if (loading) return <LoadingPage />
     return (
       <div>
-        {image}
+        {noteImage}
         <div className="content-block-title">Content</div>
         <div className="content-block">
           <div className="content-block-inner">
-            <p>{note.content}</p>
+            <p>{content}</p>
             <p>
-              <span>{renameTag(note.tag)} priority</span>
-              <span>#{note.category}</span>
+              <span>{renameTag(tag)} priority</span>
+              <span>#{category}</span>
             </p>
           </div>
         </div>
@@ -49,6 +54,6 @@ class ViewNoteContent extends Component {
   }
 }
 
-const mapStateToProps = ({selected_note}) => ({ note: selected_note })
+const mapStateToProps = ({selected_note, loading_note}) => ({ loading: loading_note, note: selected_note })
 
 export default connect(mapStateToProps)(ViewNoteContent)

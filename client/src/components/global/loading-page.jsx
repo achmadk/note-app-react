@@ -1,12 +1,12 @@
 import React from 'react'
 
-const LoadingPage = () => {
+export default function LoadingPage() {
   return (
-    <div className="content-block" style={{textAlign: 'center'}}>
-      <span className="preloader" /><br />
-      Loading...
+    <div className="loading-wrapper">
+      <div className="loading-content">
+        <div className="preloader" />
+        <h1>Loading...</h1>
+      </div>
     </div>
   )
 }
-
-export default LoadingPage
