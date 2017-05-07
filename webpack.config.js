@@ -39,7 +39,7 @@ module.exports = {
        * then move it into img folder with name [hash].[ext] using url-loader
        */
       test: /.*\.(png|jpg|svg)$/i,
-      loader: 'url?name=./img/[hash].[ext]!image-webpack',
+      loader: 'url?name=./img/[hash].[ext]!image-webpack?bypassOnDebug=true',
     }, {
       /**
        * load fonts with specific extensions,
