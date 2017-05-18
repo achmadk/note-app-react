@@ -11,8 +11,9 @@ export default function FormInput({ input }) {
       insertedInput = <textarea name={input.name} className="resizable" placeholder={input.placeholder} />
       break;
   }
+  let className = classname({'align-top': input.type == "textarea"})
   return (
-    <li className={classname({'align-top': input.type == "textarea"})}>
+    <li className={className}>
       <div className="item-content">
         <div className="item-inner">
           <div className="item-title floating-label">{input.title}</div>

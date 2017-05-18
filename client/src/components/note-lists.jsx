@@ -8,6 +8,10 @@ import {getNotes} from 'actions/notes'
 import {sortByDate} from 'modules/utils/functions'
 
 class NoteLists extends Component {
+  constructor (props) {
+    super(props)
+    this.searchNote = null
+  }
   componentDidMount() {
     this.props.getNotes()
   }
@@ -30,7 +34,7 @@ class NoteLists extends Component {
           f7.alert("Terjadi gangguan")
       }
     } else {
-      const searchNote = f7.searchbar('.searchbar', {
+      if (typeof f7 === 'object') this.searchNote = f7.searchbar('.searchbar', {
         searchList: '.note-lists',
         searchIn: 'a'
       })
