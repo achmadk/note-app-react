@@ -4,42 +4,59 @@ CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: [ './client/src/index.jsx' ],
   module: {
-    loaders: [{
+    rules: [{
       /**
        * use babel-loader to load .jsx files
        * react-hot-loader has been added in package.json file since version 3
        */
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'babel'
+      use: [{ loader: 'babel-loader', query: { cacheDirectory: true } }]
     }, {
       /**
        * use less-loader, css-loader, and style-loader to load .less files
        * you can import .less in .jsx file
        */
       test: /\.less$/,
-      loader: 'style!css!less'
+      use: [
+        'style-loader',
+        { loader: 'css-loader?importLoaders=1' },
+        'less-loader'
+      ]
     }, {
       /**
        * use sass-loader, css-loader, and style-loader to load .scss files
        * you can import .scss in .jsx file
        */
       test: /\.scss$/,
-      loader: 'style!css!sass'
+      loader: [
+        'style-loader',
+        'css-loader',
+        'sass-loader'
+      ]
     }, {
       /**
        * css-loader, and style-loader to load .css files
        * you can import .css in .jsx file
        */
       test: /\.css$/,
-      loader: 'style!css'
+      loader: [
+        'style-loader',
+        'css-loader'
+      ]
     }, {
       /**
        * compress images with specific extensions with image-webpack-loader,
        * then move it into img folder with name [hash].[ext] using url-loader
        */
       test: /.*\.(png|jpg|svg)$/i,
-      loader: 'url?name=./img/[hash].[ext]!image-webpack?bypassOnDebug=true',
+      use: [{
+        loader: 'url-loader',
+        options: { name: 'img/[hash].[ext]' }
+       }, {
+         loader: 'image-webpack-loader',
+         options: { bypassOnDebug: true }
+       }]
     }, {
       /**
        * load fonts with specific extensions,
@@ -47,7 +64,10 @@ module.exports = {
        * added (\?[\s\S]+) regex value in case you want to load font-awesome or ionicons font
        */
       test:  /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-      loader: 'file?name=./font/[hash].[ext]'
+      use: [{
+        loader: 'file-loader',
+        options: { name: 'font/[hash].[ext]' }
+      }]
     }, {
       /**
        * load fonts with woff/woff2 extensions with url-loader.
@@ -55,7 +75,10 @@ module.exports = {
        * added (\?[\s\S]+) regex value in case you want to load font-awesome or ionicons font
        */
       test: /\.woff(2)?(\?[\s\S]+)?$/,
-      loader: 'url-loader?limit=10000&mimetype=application/font-woff&name=./font/[hash].[ext]'
+      use: [{
+        loader: 'url-loader',
+        options: { limit: 10000, mimetype: 'application/font-woff', name: 'font/[hash].[ext]' }
+      }]
     }]
   },
   resolve: {
@@ -80,7 +103,7 @@ module.exports = {
     }
   },
   plugins: [
-    new webpack.NoErrorsPlugin(),
+    new webpack.NamedModulesPlugin(),
     new CopyWebpackPlugin([
       { from: './client/src/pages'},
       { from: './client/src/assets/img', to: 'img' }
