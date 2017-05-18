@@ -3,7 +3,7 @@ export function checkExtension(e) {
   acceptableExtension = ['jpg','png'],
   fileExtension = fileName.slice(fileName.lastIndexOf('.') + 1).toLowerCase()
 
-  if (acceptableExtension.indexOf(fileExtension) == -1) f7.alert('Please upload an image with png or jpg extension')
+  if (!acceptableExtension.includes(fileExtension)) f7.alert('Please upload an image with png or jpg extension')
   else {
     let reader = new FileReader(),
     file = e.target.files[0]
@@ -30,9 +30,9 @@ export function changeNavbarColor() {
         constant = scrollableComponent.scrollTop() / imageHeight,
         opacity = 1 - constant
         if (constant >= 1) {
-          navbarContainer.removeClass('navbar-transparent')
+          navbarContainer.removeClass('navbar-transparent no-shadow')
         } else {
-          navbarContainer.addClass('navbar-transparent')
+          navbarContainer.addClass('navbar-transparent no-shadow')
         }
         // navbarContainer.css('background-color',`rgba(164,25,27,${constant})`)
         $('.map img').css('opacity', opacity >= 0 ? opacity : 0)
