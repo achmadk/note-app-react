@@ -2,21 +2,14 @@ import React from 'react'
 import classname from 'classname'
 
 export default function FormInput({ input }) {
-  var insertedInput
-  switch (input.type) {
-    case 'text':
-      insertedInput = <input type={input.type} name={input.name} placeholder={input.placeholder} />
-      break;
-    case 'textarea':
-      insertedInput = <textarea name={input.name} className="resizable" placeholder={input.placeholder} />
-      break;
-  }
-  let className = classname({'align-top': input.type == "textarea"})
+  let {type, name, placeholder, title} = input
+  let insertedInput = selectInputType(input)
+  let className = classname({ 'align-top': type === 'textarea' })
   return (
     <li className={className}>
       <div className="item-content">
         <div className="item-inner">
-          <div className="item-title floating-label">{input.title}</div>
+          <div className="item-title floating-label">{title}</div>
           <div className="item-input item-input-field">
             {insertedInput}
           </div>
@@ -24,4 +17,14 @@ export default function FormInput({ input }) {
       </div>
     </li>
   )
+}
+
+function selectInputType (input) {
+  let {type, name, placeholder, title} = input
+  switch (type) {
+    case 'text':
+      return <input type={type} name={name} placeholder={placeholder} />
+    case 'textarea':
+      return <textarea name={name} className="resizable" placeholder={placeholder} />
+  }
 }

@@ -5,11 +5,11 @@ import {renameTag} from 'modules/panel/functions'
 
 export default function NoteList({ list }) {
     let {image, tag, date_created, _id, title, category, content} = list,
-    includedImage = (image) ? (
+    includedImage = image && (
       <div className="item-media">
         <img src={image} width="80" />
       </div>
-    ) : false,
+    ),
     name = renameTag(tag),
     date = moment(date_created, 'DD/MM/YYYY HH:mm:ss').fromNow(true)
     return (
