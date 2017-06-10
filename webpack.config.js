@@ -99,7 +99,8 @@ module.exports = {
       assets: 'client/src/assets',
       components: 'client/src/components',
       modules: 'client/src/modules',
-      reducers: 'client/src/reducers'
+      reducers: 'client/src/reducers',
+      selectors: 'client/src/selectors'
     }
   },
   plugins: [
