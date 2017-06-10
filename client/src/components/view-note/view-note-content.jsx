@@ -5,6 +5,7 @@ import moment from 'moment'
 import LoadingPage from 'components/global/loading-page'
 
 import {renameTag} from 'modules/panel/functions'
+import {getSelectedNote, checkLoadingNote} from 'selectors/notes'
 
 class ViewNoteContent extends Component {
   componentDidUpdate() {
@@ -54,6 +55,6 @@ class ViewNoteContent extends Component {
   }
 }
 
-const mapStateToProps = ({selected_note, loading_note}) => ({ loading: loading_note, note: selected_note })
+const mapStateToProps = (state) => ({ loading: checkLoadingNote(state), note: getSelectedNote(state) })
 
 export default connect(mapStateToProps)(ViewNoteContent)

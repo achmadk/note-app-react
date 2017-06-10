@@ -8,6 +8,7 @@ import FileUploader from './file-uploader'
 import {addNoteInput} from 'modules/add-note/attributes'
 import {checkExtension} from 'modules/add-note/functions'
 import {renameTag} from 'modules/panel/functions'
+import {getNoteTags, getNoteCategories, getSelectedNote} from 'selectors/notes'
 
 class AddNoteForm extends Component {
   componentDidMount() {
@@ -68,10 +69,16 @@ class AddNoteForm extends Component {
   }
 }
 
-const mapStateToProps = ({tags, categories, selected_note}) => ({
-  tags,
-  categories,
-  note: selected_note
+// const mapStateToProps = ({tags, categories, selected_note}) => ({
+//   tags,
+//   categories,
+//   note: selected_note
+// })
+
+const mapStateToProps = (state) => ({
+  tags: getNoteTags(state),
+  categories: getNoteCategories(state),
+  note: getSelectedNote(state)
 })
 
 export default connect(mapStateToProps)(AddNoteForm)

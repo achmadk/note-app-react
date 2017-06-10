@@ -7,6 +7,8 @@ import LoadingPage from 'components/global/loading-page'
 import {getNotes} from 'actions/notes'
 import {sortByDate} from 'modules/utils/functions'
 
+import {getSortedNotes, checkLoadingNotes, getError} from 'selectors/notes'
+
 class NoteLists extends Component {
   constructor (props) {
     super(props)
@@ -48,7 +50,7 @@ class NoteLists extends Component {
       <div className="list-block media-list note-lists searchbar-found">
         <ul>
         {
-          notes.sort(sortByDate).map((note, i) => <NoteList key={i} list={note} />)
+          notes.map(note => <NoteList key={note._id} list={note} />)
         }
         </ul>
       </div>
@@ -56,10 +58,10 @@ class NoteLists extends Component {
   }
 }
 
-const mapStateToProps = ({notes, loading_notes, error}) => ({
-  notes,
-  loading: loading_notes,
-  error
+const mapStateToProps = state => ({
+  notes: getSortedNotes(state),
+  loading: checkLoadingNotes(state),
+  error: getError(state)
 }),
 mapDispatchToProps = dispatch => ({
   getNotes() {
