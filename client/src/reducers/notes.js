@@ -36,34 +36,25 @@ export default function noteReducers(state = initialState, action) {
       return { ...state, loading_notes: false, error: action.payload.request }
       break;
     case `${GET_NOTE}_PENDING`:
+    case `${POST_NOTE}_PENDING`:
+    case `${UPDATE_NOTE}_PENDING`:
+    case `${DELETE_NOTE}_PENDING`:
       return { ...state, loading_note: true }
       break;
     case `${GET_NOTE}_FULFILLED`:
       return { ...state, loading_note: false, selected_note: action.payload.data, error: null }
       break;
     case `${GET_NOTE}_REJECTED`:
+    case `${POST_NOTE}_REJECTED`:
+    case `${UPDATE_NOTE}_REJECTED`:
+    case `${DELETE_NOTE}_REJECTED`:
       return { ...state, loading_note: false, error: action.payload.request }
-      break;
-    case `${POST_NOTE}_PENDING`:
-      return { ...state, loading_note: true }
       break;
     case `${POST_NOTE}_FULFILLED`:
       return { ...state, loading_note: false, notes: [action.payload.data, ...state.notes] }
       break;
-    case `${POST_NOTE}_REJECTED`:
-      return { ...state, loading_note: false, error: action.payload.request }
-      break;
-    case `${UPDATE_NOTE}_PENDING`:
-      return { ...state, loading_note: true }
-      break;
     case `${UPDATE_NOTE}_FULFILLED`:
       return { ...state, loading_note: false, error: null, selected_note: action.payload.data }
-      break;
-    case `${UPDATE_NOTE}_REJECTED`:
-      return { ...state, loading_note: false, error: action.payload.request }
-      break;
-    case `${DELETE_NOTE}_PENDING`:
-      return { ...state, loading_note: true }
       break;
     case `${DELETE_NOTE}_FULFILLED`:
       let index = state.notes.findIndex(note => note._id === action.payload.data._id)
@@ -78,9 +69,6 @@ export default function noteReducers(state = initialState, action) {
         ],
         selected_note: {}
       }
-      break;
-    case `${DELETE_NOTE}_REJECTED`:
-      return { ...state, loading_note: false, error: action.payload.request }
       break;
     case REMOVE_SELECTED_NOTE:
       window.image = null
