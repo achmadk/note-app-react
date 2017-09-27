@@ -106,8 +106,7 @@ module.exports = {
   plugins: [
     new webpack.NamedModulesPlugin(),
     new CopyWebpackPlugin([
-      { from: './client/src/pages'},
-      { from: './client/src/assets/img', to: 'img' }
+      { from: './client/src/pages'}
     ])
   ]
 };
