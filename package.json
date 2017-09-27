@@ -14,7 +14,7 @@
     "framework7": "1.6.5",
     "immutable": "3.8.1",
     "ionicons": "3.0.0",
-    "mappersmith": "2.7.0",
+    "mappersmith": "0.13.4",
     "moment": "2.18.1",
     "mongoose": "4.11.13",
     "numbro": "1.11.0",
