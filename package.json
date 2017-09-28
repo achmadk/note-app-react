@@ -10,7 +10,7 @@
     "concurrently": "3.5.0",
     "cors": "2.8.4",
     "dom7": "1.7.2",
-    "express": "4.15.5",
+    "express": "4.16.0",
     "framework7": "1.6.5",
     "immutable": "3.8.1",
     "ionicons": "3.0.0",
